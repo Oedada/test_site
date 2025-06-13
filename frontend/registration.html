@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <form action="">
-        
-    </form>
+
+<div class="tab">
+  <input checked id="login-btn" name="tab-btn" type="radio" value="">
+  <label for="login-btn">Вход</label>
+  <input id="registration-btn" name="tab-btn" type="radio" value="">
+  <label for="registration-btn">Регистрация</label>
+
+  <div class="tab-content" id="content-login">
+        <form id="login-form" method="get">
+            <label>Логин:</label>
+            <input type="text"> 
+
+            <label>Пароль:</label>
+            <input type="text">
+        </form>
+  </div>
+  <div class="tab-content" id="content-registration">
+    Содержимое 2...
+  </div>
+</div>
 </body>
 </html>

@@ -1,17 +1,31 @@
-// Находим кнопку по ID
-const lol_button = document.getElementById('lol_button');
-const back_button = document.getElementById('back_button');
+let xhr = null;
+let sendBt = document.getElementById("send-btn")
 
-// Функция, которая будет выполняться при нажатии
-function Lol() {
-    console.log("LOL")
-    window.location.href = './hotel.html';
-}
+    getXmlHttpRequestObject = function () {
+        if (!xhr) {
+            xhr = new XMLHttpRequest()
+        }
+        return xhr
+    }
 
-function Back(){
-    console.log("Go back")
-    window.location.href = './index.html';
-}
-// Привязываем обработчик события к кнопке
-lol_button.addEventListener('click', Lol);
-back_button.addEventListener('click', Back);
+    function sendDataCallback() {
+        if (xhr.readyState == 4 && xhr.status == 201) {
+            let response = JSON.parse(xhr.responseText);
+            if (response["acces"] === "true"){
+                window.location = "https://google.com"
+            }
+            else{
+                alert(response["error"])
+            }
+        }
+    }
+
+    function checkLogin(){
+        xhr = getXmlHttpRequestObject()
+        xhr.onreadystatechange = sendDataCallback
+        xhr.open("POST", "http://localhost:6969/check_login", true)
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+        xhr.send(JSON.stringify({"login": document.getElementById("login-input").value, "password": document.getElementById("passwd-log-input").value}))
+    }
+
+sendBt.onclick = checkLogin

@@ -1,14 +1,28 @@
-<html>
-<header>
-    <title>Test page</title>
-</header>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-    <div>This is simple test to get data from a backend</div>
-    <div><span>Last update: </span><span id="time-container"></span></div>
-    <button onclick="getUsers()">Get user data</button>
-    <div id="result-container"></div>
+
+<div class="tab">
+  <input checked id="login-btn" name="tab-btn" type="radio" value="">
+  <label for="login-btn">Вход</label>
+  <input id="registration-btn" name="tab-btn" type="radio" value="">
+  <label for="registration-btn">Регистрация</label>
+
+  <div class="tab-content" id="content-login">
+    <input type="text" placeholder="Логин" class="input-text" id="login-input"> 
+    <input type="text" placeholder="Пароль" class="input-text" id="passwd-log-input">
+    <button id="send-btn">Войти</button>
+  </div>
+  <div class="tab-content" id="content-registration">
+    Содержимое 2...
+  </div>
+</div>
 </body>
 <script src="script.js"></script>
-
 </html>
